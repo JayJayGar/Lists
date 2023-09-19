@@ -78,8 +78,31 @@ public class LinkedList<E> implements List<E> {
         return size;
     }
 
-    /** Stub : UNDER CONSTRUCTION */
+    public boolean isEmpty() {
+        return size == 0;
+    }
+
     public Iterator<E> iterator() {
-        return null;
+        return new RefIterator<E>(this);
+    }
+
+    /** public String toString() {
+    *    if (isEmpty()) {
+    *        return "[]";
+    *    } ref = head.next;
+    *    String result = ref.value.toString();
+    *    for (int i=0; i<size-1; i++) {
+    *        ref = ref.next;
+    *        result = result+","+ref.value;
+    *    } return "[" + result + "]";
+    * } */
+
+    public String toString() {
+        if (isEmpty()) { return "[]"; }
+        Iterator<E> it = this.iterator();
+        String result = it.next().toString();
+        while(it.hasNext()) {
+            result = result + "," + it.next();
+        } return "[" + result + "]";
     }
 }
