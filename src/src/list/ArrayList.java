@@ -36,7 +36,7 @@ public class ArrayList <E> implements List<E> {
         size++;
     }
     private void alloc(){
-        E[] temp = (E[]) new Object[values.length+1];
+        E[] temp = (E[]) new Object[values.length*2];
         for(int i =0; i<size;i++){
             temp[i] = values[i];
         }
