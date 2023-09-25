@@ -91,4 +91,10 @@ public class ArrayList <E> implements List<E> {
     public Iterator<E> iterator() {
         return new ArrayIterator<>(this);
     }
+
+    public ListIterator<E> listIterator() { return new ArrayListIterator<E>(this); }
+
+    public ListIterator<E> listIterator(int ndx) {
+        return new ArrayListIterator<E>(this,ndx);
+    }
 }

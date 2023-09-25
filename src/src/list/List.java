@@ -31,4 +31,10 @@ public interface List<E> {
     /** @return an Iterator for this List */
     Iterator<E> iterator();
 
+    /** @return a ListIterator for this List */
+    ListIterator<E> listIterator();
+
+    /** @return a ListIterator for this List, beginning at the given ndx
+     * use size to begin at end */
+    ListIterator<E> listIterator(int ndx);
 }

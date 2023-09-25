@@ -105,4 +105,10 @@ public class LinkedList<E> implements List<E> {
             result = result + "," + it.next();
         } return "[" + result + "]";
     }
+
+    /** STUB */
+    public ListIterator<E> listIterator() { return null; }
+
+    /** STUB */
+    public ListIterator<E> listIterator(int ndx) { return null; }
 }
