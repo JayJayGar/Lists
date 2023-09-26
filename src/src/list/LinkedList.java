@@ -106,9 +106,9 @@ public class LinkedList<E> implements List<E> {
         } return "[" + result + "]";
     }
 
-    /** STUB */
-    public ListIterator<E> listIterator() { return null; }
+    public ListIterator<E> listIterator() { return new RefListIterator<E>(this); }
 
-    /** STUB */
-    public ListIterator<E> listIterator(int ndx) { return null; }
+    public ListIterator<E> listIterator(int start) {
+        return new RefListIterator<E>(this, start);
+    }
 }
