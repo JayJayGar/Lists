@@ -3,7 +3,7 @@ package list;
 /** An Iterator for ArrayList
  * @author JSG */
 class ArrayIterator<E> implements Iterator<E> {
-    int ndx = -1; //position of last value returned by next()
+    int ndx; //position of last value returned by next()
     List<E> list;
 
     ArrayIterator(List<E> list) {

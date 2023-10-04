@@ -16,4 +16,7 @@ public interface StackADT<E> {
      * @return value removed
      * Pre: This StackADT not empty */
     E pop();
+
+    /** @return true iff this Stack is empty */
+    boolean isEmpty();
 }

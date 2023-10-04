@@ -26,14 +26,14 @@ class ArrayListIterator<E> extends ArrayIterator<E> implements ListIterator<E> {
         return list.get(ndx+1);
     }
 
-    /** public void remove() {
-        if (forward) {
-            list.remove(ndx);
-            ndx--;
-        } else {
-            list.remove(ndx+1);
-        }
-    } */
+//    public void remove() {
+//        if (forward) {
+//            list.remove(ndx);
+//            ndx--;
+//        } else {
+//            list.remove(ndx);
+//        }
+//    }
 
     public void remove() {
         if (forward) { ndx--; }
@@ -43,6 +43,20 @@ class ArrayListIterator<E> extends ArrayIterator<E> implements ListIterator<E> {
     public E next() {
         forward = true;
         return super.next();
+    }
+
+    public void add(E value){
+        if(!forward){
+            list.add(list.size(),list.get(list.size()-1));
+            for(int i =0;i<list.size();i++){
+                list.set(list.size()-i,list.get(list.size()-i-1));
+            }
+            list.set(1,value);
+        }
+
+        if(forward){
+            list.add(list.size(),value);
+        }
     }
 
 }

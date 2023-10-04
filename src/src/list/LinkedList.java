@@ -21,10 +21,16 @@ public class LinkedList<E> implements List<E> {
 
     //set ref to given ndx
     private void setRef(int ndx){
-        ref = head.next;
-        for(int i=0; i<ndx; i++) {
-            ref = ref.next;
+        if (ndx<size/2) {
+            ref = head.next;
+            for(int i=0; i<ndx; i++) {
+                ref = ref.next;
+            }
+        } ref = tail;
+        for(int i=size; i>ndx; i--) {
+            ref = ref.prev;
         }
+
     }
 
     public E set(int ndx, E value) {
@@ -86,25 +92,25 @@ public class LinkedList<E> implements List<E> {
         return new RefIterator<E>(this);
     }
 
-    /** public String toString() {
-    *    if (isEmpty()) {
-    *        return "[]";
-    *    } ref = head.next;
-    *    String result = ref.value.toString();
-    *    for (int i=0; i<size-1; i++) {
-    *        ref = ref.next;
-    *        result = result+","+ref.value;
-    *    } return "[" + result + "]";
-    * } */
-
     public String toString() {
+        if (isEmpty()) {
+            return "[]";
+        } ref = head.next;
+        String result = ref.value.toString();
+        for (int i=0; i<size-1; i++) {
+            ref = ref.next;
+            result = result+","+ref.value;
+        } return "[" + result + "]";
+     }
+
+    /**public String toString() {
         if (isEmpty()) { return "[]"; }
         Iterator<E> it = this.iterator();
         String result = it.next().toString();
         while(it.hasNext()) {
             result = result + "," + it.next();
         } return "[" + result + "]";
-    }
+    } */
 
     public ListIterator<E> listIterator() { return new RefListIterator<E>(this); }
 

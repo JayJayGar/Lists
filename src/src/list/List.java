@@ -37,4 +37,6 @@ public interface List<E> {
     /** @return a ListIterator for this List, beginning at the given ndx
      * use size to begin at end */
     ListIterator<E> listIterator(int ndx);
+
+    boolean isEmpty();
 }

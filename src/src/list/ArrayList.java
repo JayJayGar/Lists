@@ -51,6 +51,7 @@ public class ArrayList <E> implements List<E> {
         for (int i = ndx; i < size - 1; i++) {
             values[i] = values[i + 1];
         }
+        size--;
         return result;
     }
 
@@ -82,6 +83,10 @@ public class ArrayList <E> implements List<E> {
         }
         temp += "]";
         return temp;
+    }
+
+    public boolean isEmpty() {
+        return size == 0;
     }
 
     public int size() {

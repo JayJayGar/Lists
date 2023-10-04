@@ -16,4 +16,7 @@ public interface QueueADT<E> {
      * @return the value removed
      * Pre: This QueueADT is not empty */
     E remove();
+
+    /** @return true iff this Queue is empty */
+    boolean isEmpty();
 }

@@ -23,5 +23,6 @@ public class Queue<E> implements QueueADT<E> {
         return list.remove(0);
     }
 
+    public boolean isEmpty() { return list.size() == 0; }
 
 }

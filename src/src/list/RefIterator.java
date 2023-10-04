@@ -14,7 +14,7 @@ class RefIterator<E> implements Iterator<E>{
     }
 
     public boolean hasNext() {
-        return cursor != list.tail;
+        return cursor.next != list.tail;
     }
     public E next() {
         cursor = cursor.next;
@@ -25,6 +25,13 @@ class RefIterator<E> implements Iterator<E>{
         cursor.prev.next = cursor.next;
         cursor.next.prev = cursor.prev;
         list.size--;
+    }
+
+    public void add(E value){
+        Node<E> temp = new Node(value,cursor.next,cursor.prev);
+        cursor.next.prev = temp;
+        cursor.next = temp;
+        list.size++;
     }
 
 

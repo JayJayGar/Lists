@@ -21,4 +21,6 @@ public class Stack<E> implements StackADT<E> {
         return list.remove(list.size()-1);
     }
 
+    public boolean isEmpty() { return list.size() == 0; }
+
 }

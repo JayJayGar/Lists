@@ -16,4 +16,6 @@ public interface ListIterator<E> extends Iterator<E> {
      * Pre: next() or prev() has been called since last remove */
     void remove();
 
+    public void add(E value);
+
 }

@@ -41,4 +41,6 @@ public class ArrayQueue<E> implements QueueADT<E> {
         size--;
         return result;
     }
+
+    public boolean isEmpty(){ return list.size() == 0; }
 }
