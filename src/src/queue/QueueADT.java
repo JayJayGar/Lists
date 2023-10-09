@@ -19,4 +19,6 @@ public interface QueueADT<E> {
 
     /** @return true iff this Queue is empty */
     boolean isEmpty();
+
+    int size();
 }
