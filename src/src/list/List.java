@@ -39,4 +39,8 @@ public interface List<E> {
     ListIterator<E> listIterator(int ndx);
 
     boolean isEmpty();
+
+    /** @return index of first occurrence of given value,
+     * or -1 if not found */
+    int indexOf(E value); // sequential search
 }
