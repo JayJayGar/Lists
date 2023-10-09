@@ -118,7 +118,7 @@ public class LinkedList<E> implements List<E> {
         return new RefListIterator<E>(this, start);
     }
 
-    public int indexOf(E value) { return indexOf(0,head.next, value) }
+    public int indexOf(E value) { return indexOf(0,head.next, value); }
 
     private int indexOf(int start, Node<E> ref, E value) {
         if (ref == tail) { return -1; } //not found
