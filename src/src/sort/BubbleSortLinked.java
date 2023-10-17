@@ -1,6 +1,5 @@
 package sort;
-//import list.*;
-import java.util.LinkedList;
+import list.*;
 
 /** Sort a LinkedList with BubbleSort in time O(n^2) */
 public class BubbleSortLinked<E extends Comparable> {
