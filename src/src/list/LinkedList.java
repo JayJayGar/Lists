@@ -62,14 +62,14 @@ public class LinkedList<E> implements List<E> {
         size--;
         return ref.value;
     }
-    /** public int indexOf(Object obj){
+    public int indexOf(Object obj){
         for(int i = 0; i < size; i++) {
             if (get(i).equals(obj)) {
                 return i;
             }
         }
         return -1;
-    } */
+    }
 
     public boolean contains(Object obj) {
         for(int i = 0; i < size; i++) {
@@ -87,6 +87,9 @@ public class LinkedList<E> implements List<E> {
     public boolean isEmpty() {
         return size == 0;
     }
+
+    /** STUB FOR NOW */
+    public void addAll(List<E> other) {}
 
     public Iterator<E> iterator() {
         return new RefIterator<E>(this);
@@ -112,17 +115,12 @@ public class LinkedList<E> implements List<E> {
         } return "[" + result + "]";
     } */
 
+    /** STUB */
+    public void clear() {}
+
     public ListIterator<E> listIterator() { return new RefListIterator<E>(this); }
 
     public ListIterator<E> listIterator(int start) {
         return new RefListIterator<E>(this, start);
-    }
-
-    public int indexOf(E value) { return indexOf(0,head.next, value); }
-
-    private int indexOf(int start, Node<E> ref, E value) {
-        if (ref == tail) { return -1; } //not found
-        if (ref.value.equals(value)) { return start; }
-        return indexOf(start+1, ref.next, value);
     }
 }

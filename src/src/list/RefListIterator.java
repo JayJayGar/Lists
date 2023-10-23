@@ -52,12 +52,30 @@ class RefListIterator<E> extends RefIterator<E> implements ListIterator<E>{
         return cursor.value;
     }
 
-
+    @Override
     public void remove() {
-        super.remove();
+        cursor.prev.next = cursor.next;
+        cursor.next.prev = cursor.prev;
         if (forward) {
             cursor = cursor.prev;
-        } cursor = cursor.next;
+        } else {
+            cursor = cursor.next;
+        } list.size--;
     }
+
+    public void add(E value){
+        Node<E> temp = new Node(value,cursor,cursor.prev);
+        if (forward) {
+            cursor.next.prev = temp;
+            cursor.next = temp;
+            cursor = temp;
+        } else {
+            cursor.prev.next = temp;
+            cursor.prev = temp;
+//            cursor = temp;
+        } list.size++;
+    }
+
+
 
 }

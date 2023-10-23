@@ -55,14 +55,14 @@ public class ArrayList <E> implements List<E> {
         return result;
     }
 
-    /**public int indexOf(Object obj){
+    public int indexOf(Object obj){
         for(int i = 0; i < size; i++) {
             if (get(i).equals(obj)) {
                 return i;
             }
         }
         return -1;
-    } */
+    }
 
     public boolean contains(Object obj) {
         for(int i = 0; i < size; i++) {
@@ -89,9 +89,17 @@ public class ArrayList <E> implements List<E> {
         return size == 0;
     }
 
+    public void addAll(List<E> other) {
+        for(int i=0;i<other.size(); i++) {
+            add(other.get(i));
+        }
+    }
+
     public int size() {
         return size;
     }
+
+    public void clear() { values = (E[]) new Object [10]; size = 0;}
 
     public Iterator<E> iterator() {
         return new ArrayIterator<>(this);
@@ -101,17 +109,5 @@ public class ArrayList <E> implements List<E> {
 
     public ListIterator<E> listIterator(int ndx) {
         return new ArrayListIterator<E>(this,ndx);
-    }
-
-    public int indexOf(E value) {
-        return indexOf(0, value);
-    }
-
-    private int indexOf(int start, E value) {
-        if (start == size) { return -1; }
-        if (get(start).equals(value)) {
-            return start;
-        }
-        return indexOf(start+1,value);
     }
 }

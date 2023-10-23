@@ -23,6 +23,11 @@ class ArrayIterator<E> implements Iterator<E> {
         list.remove(ndx);
         ndx--;
     }
+
+    public boolean has2More() {
+        if (list.isEmpty()) { return false; }
+        return ndx < list.size() - 2;
+    }
 }
 
 

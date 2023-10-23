@@ -40,7 +40,8 @@ public interface List<E> {
 
     boolean isEmpty();
 
-    /** @return index of first occurrence of given value,
-     * or -1 if not found */
-    int indexOf(E value); // sequential search
+    /** Add all values from the other List to this List */
+    void addAll (List <E> other);
+
+    void clear();
 }

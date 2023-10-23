@@ -27,11 +27,16 @@ class RefIterator<E> implements Iterator<E>{
         list.size--;
     }
 
-    public void add(E value){
-        Node<E> temp = new Node(value,cursor.next,cursor.prev);
-        cursor.next.prev = temp;
-        cursor.next = temp;
-        list.size++;
+//    public void add(E value){
+//        Node<E> temp = new Node(value,cursor.next,cursor.prev);
+//        cursor.next.prev = temp;
+//        cursor.next = temp;
+//        list.size++;
+//    }
+
+    public boolean has2More() {
+        if (list.isEmpty()) { return false; }
+        return cursor.next.next != list.tail;
     }
 
 
