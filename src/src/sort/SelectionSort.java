@@ -13,6 +13,16 @@ public class SelectionSort<E extends Comparable> implements Sorter<E> {
         }
     }
 
+//    /** @return position of biggest value, beginning at start */
+//    private int posBiggest(int start) {
+//        int result = start;
+//        for (int i=start+1; i<list.size(); i++) {
+//            if(list.get(i).compareTo(list.get(result))>0) {
+//                result = i;
+//            }
+//        } return result;
+//    }
+
     /** @return position of smallest value, beginning at start */
     private int posSmallest(int start) {
         int result = start;
