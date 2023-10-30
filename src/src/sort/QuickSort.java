@@ -21,9 +21,23 @@ public class QuickSort <E extends Comparable> implements Sorter<E>{
     /** Post: All values to the left of pivot are smaller than the Pivot
      * All values to the right of the Pivot are greater than or equal to Pivot
      * @return position of pivot */
+//    private int partition(int start, int end) {
+//        int p = start; //p Pivot position
+//        E pivot = list.get(p);
+//        for (int i=start+1; i<=end; i++) {
+//            if (list.get(i).compareTo(pivot) < 0) {
+//                list.set(p, list.get(i));
+//                p++;
+//                list.set(i, list.get(p));
+//            }
+//        } list.set(p,pivot);
+//        return p;
+//    }
+
     private int partition(int start, int end) {
         int p = start; //p Pivot position
-        E pivot = list.get(p);
+        E pivot = list.get((start+end)/2);
+        list.set((start+end)/2,list.get(start));
         for (int i=start+1; i<=end; i++) {
             if (list.get(i).compareTo(pivot) < 0) {
                 list.set(p, list.get(i));
