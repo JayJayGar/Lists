@@ -1,4 +1,5 @@
 package tree;
+import list.*;
 
 /** A BinaryTree in which value is smaller than all vales in the right
  * child's fammily, larger than all the values in the left child's family.
@@ -37,7 +38,45 @@ public class BinarySearchTree <E extends Comparable> implements BinaryTree<E> {
     }
 
     public BinaryTree<E> remove(Object obj) {
-        return null;
+        removed = false;
+        try {
+            E key = (E)obj;
+            return removeHelper(key);
+        } catch (ClassCastException cce) { return this; }
+    }
+
+    private BinaryTree<E> removeHelper(E key) {
+        int cmp = value.compareTo(key);
+        if (cmp ==0 ) { //found
+            removed = true;
+            List<BinaryTree<E>> kids = children();
+            //Empty
+            if(kids.isEmpty()) return new EmptyBinarySearchTree<>();
+            //Child
+            if(kids.size()==1) return kids.get(0);
+            //2 children
+            E successor = getSuccessor();
+            removeHelper(successor);
+            value = successor;
+            return this;
+        }
+        if (cmp < 0) right = right.remove(key);
+        if (cmp > 0) left = left.remove(key);
+        if (removed) size--;
+        return this;
+    }
+
+    private List<BinaryTree<E>> children() {
+        List<BinaryTree<E>> result = new ArrayList<BinaryTree<E>>();
+        if (!left.isEmpty()) result.add(left);
+        if (!right.isEmpty()) result.add(right);
+        return result;
+    }
+
+    private E getSuccessor() {
+        BinaryTree<E> result = right;
+        while (!result.getLeft().isEmpty()) { result = result.getLeft(); }
+        return result.getValue();
     }
 
     public BinaryTree<E> add(E value) {
