@@ -1,4 +1,5 @@
 package tree;
+import list.Iterator;
 
 /** A binary tree has a value, and at most two children each of
  * which is a binary tree
@@ -41,5 +42,8 @@ public interface BinaryTree<E> {
 
     /** @return the right child of this BinaryTree */
     BinaryTree<E> getRight();
+
+    /** @return an Iterator for this Binary Tree */
+    Iterator<E> iterator();
 
 }

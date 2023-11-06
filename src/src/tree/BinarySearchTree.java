@@ -122,5 +122,7 @@ public class BinarySearchTree <E extends Comparable> implements BinaryTree<E> {
         return right;
     }
 
+    public Iterator<E> iterator() { return new TreeIterator<E>(this); }
+
 
 }

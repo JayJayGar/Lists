@@ -1,4 +1,5 @@
 package tree;
+import list.Iterator;
 
 /** An EmptyBinarySearchTree has no value, nor children */
 public class EmptyBinarySearchTree<E extends Comparable> implements BinaryTree<E> {
@@ -46,4 +47,6 @@ public class EmptyBinarySearchTree<E extends Comparable> implements BinaryTree<E
     public BinaryTree<E> getRight() {
         return null;
     }
+
+    public Iterator<E> iterator() { return new TreeIterator<E>(this); }
 }
