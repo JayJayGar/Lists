@@ -30,7 +30,7 @@ public class ArrayList <E> implements List<E> {
             alloc(); //no room
         }
         for (int i=size; i>ndx; i--) {
-            values[i] = values[i+1];
+            values[i] = values[i-1];
         }
         values[ndx] = value;
         size++;

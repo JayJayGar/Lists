@@ -33,7 +33,7 @@ class TreeIterator<E> implements Iterator<E> {
     public void remove() {
         //remove lastGotten from the tree
         if (!tree.getValue().equals(lastGotten) ||
-                tree.getLeft().isEmpty() == tree.getLeft().isEmpty())
+                tree.getLeft().isEmpty() && tree.getRight().isEmpty())
             tree = tree.remove(lastGotten);
         else {
             BinaryTree<E> child = tree.getLeft();

@@ -36,7 +36,11 @@ public class DriverIteratorToString
      */
     private static void removeNegs(BinaryTree<Integer> nums)
     {  
-        //// PUT YOUR CODE HERE
+        Iterator<Integer> it = nums.iterator();
+        while (it.hasNext()) {
+            if (it.next() < 0) it.remove();
+        }
+
         
     }
 }
