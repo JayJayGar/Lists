@@ -124,5 +124,13 @@ public class BinarySearchTree <E extends Comparable> implements BinaryTree<E> {
 
     public Iterator<E> iterator() { return new TreeIterator<E>(this); }
 
-
+    public String toString() {
+        String s = "[";
+        s+=value;
+        Iterator<E> it = iterator();
+        while (it.hasNext()) {
+            s += ", " + it.next() + "";
+        } s += "]";
+        return s;
+    }
 }
