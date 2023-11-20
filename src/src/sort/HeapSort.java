@@ -7,28 +7,29 @@ public class HeapSort <E extends Comparable> implements Sorter<E> {
     List<E> list;
     public void sort(List<E> list) {
         this.list=list;
-        heapify(0);
+        heapify(0); //O(n*log(n))
         int last = list.size()-1;
         while(last>0) {
-            swap(0,last);
+            swap(0,last); //n times
             last--;
             percDown(0,last);
         }
     }
 
-    public void heapify(int root) {
-        if (root>list.size()-1) return;
-        heapify(2*root+1);
-        heapify(2*root+2);
-        percDown(root,list.size()-1);
-    }
+    public void heapify(int root) { // O(n * log(n))
+        int max = list.size()-1;
+        if (root>=max) return;
+        heapify(2*root+1); //left
+        heapify(2*root+2); //right
+        percDown(root,max); // O(log(n))
+    } // n calls to heapify
 
-    private void percDown(int root, int max) {
+    private void percDown(int root, int max) { // O(log(n))
         int bc = biggerChild(root, max); //bc is pos of root's bigger child
-        while (greater(bc,root) && 2*root+1 <= max){
-            swap(root,bc);
+        while (2*root+1 <= max && greater(bc,root)){
+            swap(root,bc); //O(1)
             root = bc;
-            bc = biggerChild(root, max);
+            bc = biggerChild(root, max); //O(1)
         }
     }
 

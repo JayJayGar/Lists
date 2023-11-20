@@ -55,6 +55,12 @@ public class ArrayList <E> implements List<E> {
         return result;
     }
 
+    public boolean remove(Object obj) {
+        for (int i=0; i < size-1; i++) {
+            if (get(i).equals(obj)) return true;
+        } return false;
+    }
+
     public int indexOf(Object obj){
         for(int i = 0; i < size; i++) {
             if (get(i).equals(obj)) {

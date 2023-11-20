@@ -26,6 +26,8 @@ public interface List<E> {
      * @param //0<=ndx<size */
     E remove(int ndx);
 
+    boolean remove(Object obj);
+
     int size();
 
     /** @return an Iterator for this List */
@@ -44,4 +46,6 @@ public interface List<E> {
     void addAll (List <E> other);
 
     void clear();
+
+    boolean contains(Object obj);
 }

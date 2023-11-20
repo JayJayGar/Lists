@@ -32,7 +32,7 @@ public class DriverIteratorToString
     }
     
     /** Remove all negative numbers from the given BinaryTree
-     * @author JSG !!!
+     * @author JSG
      */
     private static void removeNegs(BinaryTree<Integer> nums)
     {  

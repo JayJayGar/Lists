@@ -62,6 +62,16 @@ public class LinkedList<E> implements List<E> {
         size--;
         return ref.value;
     }
+
+    public boolean remove(Object obj) {
+        int ndx = indexOf(obj);
+        if (ndx == -1) return false;
+        setRef(ndx);
+        ref.prev.next = ref.next;
+        ref.next.prev = ref.prev;
+        size--;
+        return true;
+    }
     public int indexOf(Object obj){
         for(int i = 0; i < size; i++) {
             if (get(i).equals(obj)) {
