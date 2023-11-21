@@ -24,7 +24,7 @@ public class HashTable <K> {
         return list.contains(obj);
     }
 
-    private List<K> getList(Object obj) {
+    private List<K> getList(Object obj) { //O(1)
         int code = obj.hashCode();
         code = Math.abs(code);
         code = code % lists.size();
@@ -72,4 +72,6 @@ public class HashTable <K> {
             lists.add(new LinkedList<K>());
         }
     }
+
+    public Iterator<K> iterator() { return new TableIterator<K>(this); }
 }

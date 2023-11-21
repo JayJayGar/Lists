@@ -16,7 +16,7 @@ public interface Iterator<E> {
      * Pre: next() has been called at least once since last call to remove() */
     void remove();
 
-    /** @return true iff there are at least two more values to be obtained */
-    boolean has2More();
+//    /** @return true iff there are at least two more values to be obtained */
+//    boolean has2More();
 
 }
