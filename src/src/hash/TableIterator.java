@@ -21,7 +21,7 @@ public class TableIterator<K> implements Iterator<K> {
 
     public boolean hasNext() {
         if (it.hasNext()) return true;
-        return nextList()<0;
+        return nextList()>=0; //nextList() returns -1 if there are no more non-empty LL
     }
 
     /** Return pos of next non-Empty LL or -1 if not found. */
