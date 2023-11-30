@@ -74,4 +74,14 @@ public class HashTable <K> {
     }
 
     public Iterator<K> iterator() { return new TableIterator<K>(this); }
+
+    public String toString(){
+        Iterator it = this.iterator();
+        String result = "[";
+        while(it.hasNext()){
+            result = result +it.next();
+            if(it.hasNext())result+=", ";
+        }
+        return result+"]";
+    }
 }
