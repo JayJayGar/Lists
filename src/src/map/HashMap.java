@@ -1,6 +1,10 @@
 package map;
 
 import hash.*;
+import list.Iterator;
+import set.HashSet;
+import set.Set;
+import set.TreeSet;
 
 /** A Map implemented with a HashTable
  * @author JSG */
@@ -16,7 +20,7 @@ public class HashMap<K, V> implements Map<K, V> {
         }
 
         public String toString() {
-            return "[" + key + "," + value + "]";
+            return key + " = " + value;
         }
 
         public boolean equals(Object obj) {
@@ -61,5 +65,65 @@ public class HashMap<K, V> implements Map<K, V> {
         if (entry == null) return null;
         table.remove(entry);
         return entry.value;
+    }
+
+    public int size() {
+        return table.size();
+    }
+
+    public boolean isEmpty() {
+        return table.isEmpty();
+    }
+
+    public void clear() {
+
+    }
+
+    public K getKey(V value) {
+
+        return this.getKey(value);
+    }
+
+    public Set<K> keySet()
+    {
+        Set<K> keySet = new HashSet<>();
+        Iterator<Entry<K,V>> it = table.iterator();
+        while (it.hasNext()){
+            keySet.add(it.next().key);
+        }
+
+        return keySet;
+    }
+
+    public String toString(){
+        String result = "";
+        Iterator<Entry<K,V>> it = table.iterator();
+        while(it.hasNext()){
+            Entry<K,V> ent = it.next();
+            result += ent.toString();
+            if(it.hasNext())
+                result +=", ";
+        }
+        return "["+result+"]";
+    }
+    /** @return true iff the given object is a Map, and this Map is equal to the given object */
+    public boolean equals(Object obj)
+    {
+        if(obj instanceof Map<?,?>) {
+            K key;
+            Set<K> keySet = keySet();
+            Set<K> objKeySet = ((Map<K, V>) obj).keySet();
+            if(objKeySet.equals(keySet)){
+                Iterator<K> it = keySet.iterator();
+                while (it.hasNext()) {
+                    key = it.next();
+                    if(!this.get(key).equals(((Map<K, V>) obj).get(key))){
+                        return false;
+                    }
+                }
+                return true;
+            }return false;//if keysets are not equal
+        }
+        return false;//if not instance of map
     }
 }
